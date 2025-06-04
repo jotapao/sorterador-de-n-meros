@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorteador de Números</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -45,7 +45,7 @@
                         <input type="number" id="inicio-intervalo" value="1">
                     </div>
                     <div class="input-group">
-                        <label for="fim-intervalo">DE</label> <input type="number" id="fim-intervalo" value="100">
+                        <label for="fim-intervalo">ATÉ</label> <input type="number" id="fim-intervalo" value="100">
                     </div>
                 </div>
 
@@ -57,11 +57,19 @@
                     <span>Não repetir números</span>
                 </div>
 
-                <button class="sort-button">
-                    SORTEAR <i class="fas fa-arrow-right"></i>
-                </button>
+              <button class="sort-button">
+                SORTEAR <i class="fas fa-arrow-right"></i>
+            </button>
+
+            <div id="resultados-area" class="resultados-container-visual">
+                <h3 id="titulo-resultados" style="display: none;">Números Sorteados:</h3>
+                <div id="numeros-sorteados-display" class="numeros-sorteados-lista-visual">
+                    </div>
+                <p id="mensagem-erro" class="mensagem-erro-visual" style="display: none;"></p>
+            </div>
             </section>
-        </main>
-    </div>
-    </body>
+    </main>
+</div>
+<script src="script.js"></script>
+</body>
 </html>

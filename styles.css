@@ -35,12 +35,11 @@ body {
         transparent,
         transparent 80px, /* Espaçamento entre as listras */
         var(--stripe-color) 80px,
-        var(--stripe-color) 83px  /* Largura da listra */
+        var(--stripe-color) 83px /* Largura da listra */
     );
     z-index: 0;
     pointer-events: none; /* Para não interferir com cliques */
 }
-
 
 .container {
     width: 100%;
@@ -181,12 +180,12 @@ header {
 /* Remove setas do input number (WebKit/Blink) */
 .input-group input[type=number]::-webkit-inner-spin-button,
 .input-group input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+ -webkit-appearance: none;
+    margin: 0;
 }
 /* Remove setas do input number (Firefox) */
 .input-group input[type=number] {
-  -moz-appearance: textfield;
+    -moz-appearance: textfield;
 }
 
 
@@ -196,6 +195,7 @@ header {
     margin-bottom: 30px;
     color: var(--text-color);
 }
+
 
 .toggle-container span {
     margin-left: 12px;
@@ -231,7 +231,7 @@ header {
     position: absolute;
     content: "";
     height: 20px; /* Tamanho do círculo */
-    width: 20px;  /* Tamanho do círculo */
+    width: 20px; /* Tamanho do círculo */
     left: 4px;
     bottom: 4px;
     background-color: white;
@@ -309,7 +309,7 @@ input:checked + .slider:before {
     }
     .input-group {
         flex-basis: calc(33.333% - 10px); /* Para 3 inputs na mesma linha se houver espaço */
-         min-width: 60px;
+        min-width: 60px;
     }
     .input-group input[type="number"] {
         font-size: 1em;
@@ -318,7 +318,7 @@ input:checked + .slider:before {
 }
 
 @media (max-width: 480px) {
-     .input-fields-container {
+    .input-fields-container {
         flex-direction: column; /* Empilha os inputs */
         gap: 15px;
     }
@@ -334,4 +334,73 @@ input:checked + .slider:before {
     .form-column {
         padding: 20px;
     }
+}
+
+/* Estilos para a área de resultados */
+.resultados-container-visual {
+    margin-top: 35px;
+    text-align: center;
+    width: 100%;
+}
+
+#titulo-resultados {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.numeros-sorteados-lista-visual {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os números quebrem a linha */
+    justify-content: center; /* Centraliza os números */
+    gap: 12px; /* Espaço entre os números sorteados */
+    min-height: 60px; /* Para evitar que a seção "pule" muito quando vazia */
+}
+
+.numero-sorteado-item {
+    background-color: var(--primary-accent-color);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 1.6em;
+    font-weight: 700;
+    min-width: 55px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Estado inicial para animação */
+    /* Propriedades de animação combinadas em uma única linha (shorthand) */
+    animation: aparecerNumeroDinamico 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes aparecerNumeroDinamico {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.6) rotateX(-90deg) skewY(10deg);
+        /* Começa de baixo, menor, levemente inclinado e rotacionado */
+    }
+    60% { /* Ponto de "overshoot" ou impacto */
+        opacity: 1;
+        transform: translateY(-10px) scale(1.1) rotateX(0deg) skewY(0deg);
+        /* Sobe um pouco além do final, aumenta um pouco e corrige a inclinação */
+    }
+    100% { /* Estado final, estável */
+        opacity: 1;
+        transform: translateY(0) scale(1) rotateX(0deg) skewY(0deg);
+    }
+}
+
+.mensagem-erro-visual {
+    color: #ff5252; /* Um vermelho mais vibrante para erros */
+    background-color: rgba(255, 82, 82, 0.1);
+    border: 1px solid rgba(255, 82, 82, 0.3);
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin-top: 20px;
+    font-weight: 500;
+    font-size: 0.95em;
+    display: inline-block; /* Para não ocupar a largura toda se o texto for curto */
 }
