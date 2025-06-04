@@ -1,0 +1,337 @@
+:root {
+    --bg-color: #120F13; /* Cor de fundo principal escura */
+    --text-color: #E0E0E0; /* Cor do texto principal */
+    --primary-accent-color: #B947CC; /* Roxo/Rosa para acentos */
+    --secondary-accent-color: #8A2BE2; /* Um roxo mais azulado para variação */
+    --input-bg-color: #2D2A2E; /* Fundo dos inputs */
+    --input-text-color: #F0F0F0;
+    --border-color: #444;
+    --stripe-color: rgba(185, 71, 204, 0.05); /* Cor das listras verticais (muito sutil) */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative; /* Para o overlay das listras */
+    overflow-x: hidden; /* Prevenir scroll horizontal devido às listras */
+}
+
+/* Listras verticais no fundo, como no protótipo */
+.overlay-stripes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: repeating-linear-gradient(
+        to right,
+        transparent,
+        transparent 80px, /* Espaçamento entre as listras */
+        var(--stripe-color) 80px,
+        var(--stripe-color) 83px  /* Largura da listra */
+    );
+    z-index: 0;
+    pointer-events: none; /* Para não interferir com cliques */
+}
+
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+    padding: 40px;
+    background-color: rgba(18, 15, 19, 0.8); /* Fundo levemente transparente sobre as listras */
+    border-radius: 10px; /* Bordas arredondadas suaves */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    position: relative;
+    z-index: 1;
+    margin: 20px; /* Margem para telas menores */
+}
+
+header {
+    margin-bottom: 40px;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--primary-accent-color);
+    display: flex;
+    align-items: center;
+}
+
+.logo i {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+.content-wrapper {
+    display: flex;
+    gap: 50px; /* Espaço entre as colunas */
+    flex-wrap: wrap; /* Permite quebra em telas menores */
+}
+
+.info-column {
+    flex: 1;
+    min-width: 300px; /* Largura mínima antes de quebrar */
+}
+
+.online-status {
+    color: var(--primary-accent-color);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+
+.info-column h1 {
+    font-size: 3.2em;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+.faq-item {
+    margin-bottom: 25px;
+}
+
+.faq-item h4 {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+}
+
+.faq-item h4 i {
+    margin-right: 10px;
+    color: var(--primary-accent-color);
+    font-size: 1.2em;
+}
+
+.faq-item p {
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: #b0b0b0; /* Um pouco mais suave que o texto principal */
+}
+
+.form-column {
+    flex: 1;
+    min-width: 300px; /* Largura mínima antes de quebrar */
+    background-color: rgba(30, 26, 32, 0.7); /* Fundo levemente diferente para a coluna do formulário */
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.form-column h2 {
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.form-description {
+    font-size: 0.9em;
+    color: #b0b0b0;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.input-fields-container {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap; /* Para inputs quebrarem em telas menores */
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Para que ocupem espaço igual, se possível */
+    min-width: 80px; /* Largura mínima para cada input group */
+}
+
+.input-group label {
+    font-size: 0.8em;
+    margin-bottom: 5px;
+    color: #a0a0a0;
+    text-transform: uppercase;
+}
+
+.input-group input[type="number"] {
+    background-color: var(--input-bg-color);
+    border: 1px solid var(--border-color);
+    color: var(--input-text-color);
+    padding: 12px 15px;
+    border-radius: 6px;
+    font-size: 1.2em;
+    text-align: center;
+    width: 100%; /* Faz o input ocupar toda a largura do .input-group */
+    box-sizing: border-box; /* Garante que padding não aumente a largura total */
+}
+
+/* Remove setas do input number (WebKit/Blink) */
+.input-group input[type=number]::-webkit-inner-spin-button,
+.input-group input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Remove setas do input number (Firefox) */
+.input-group input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    color: var(--text-color);
+}
+
+.toggle-container span {
+    margin-left: 12px;
+    font-size: 0.95em;
+}
+
+/* Estilo básico para o switch (checkbox customizado) */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px; /* Largura do switch */
+    height: 28px; /* Altura do switch */
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #4a4a4a; /* Cor do switch desligado */
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px; /* Tamanho do círculo */
+    width: 20px;  /* Tamanho do círculo */
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: var(--primary-accent-color);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--primary-accent-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(22px); /* Deslocamento do círculo */
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.sort-button {
+    background-color: var(--primary-accent-color);
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 6px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+.sort-button i {
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.sort-button:hover {
+    background-color: var(--secondary-accent-color); /* Um pouco mais escuro ou diferente no hover */
+    transform: translateY(-2px);
+}
+
+.sort-button:hover i {
+    transform: translateX(5px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column; /* Empilha as colunas */
+        gap: 30px;
+    }
+
+    .info-column h1 {
+        font-size: 2.5em;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    .input-fields-container {
+        justify-content: space-between;
+    }
+    .input-group {
+        flex-basis: calc(33.333% - 10px); /* Para 3 inputs na mesma linha se houver espaço */
+         min-width: 60px;
+    }
+    .input-group input[type="number"] {
+        font-size: 1em;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+     .input-fields-container {
+        flex-direction: column; /* Empilha os inputs */
+        gap: 15px;
+    }
+    .input-group {
+        flex-basis: 100%; /* Cada input ocupa a linha toda */
+    }
+    .info-column h1 {
+        font-size: 2em;
+    }
+    .logo {
+        font-size: 1.5em;
+    }
+    .form-column {
+        padding: 20px;
+    }
+}
