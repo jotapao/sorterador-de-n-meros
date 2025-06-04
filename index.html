@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteador de Números</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="overlay-stripes"></div>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-plus-circle"></i> NUMBERS
+            </div>
+        </header>
+
+        <main class="content-wrapper">
+            <section class="info-column">
+                <p class="online-status">ONLINE - GRATUITO</p>
+                <h1>SORTEADOR<br>DE NÚMEROS</h1>
+                <div class="faq-item">
+                    <h4><i class="far fa-lightbulb"></i> Como funciona o sorteador de números?</h4>
+                    <p>O sorteador utiliza um algoritmo de geração aleatória para obter números dentro do intervalo especificado pelo usuário.</p>
+                </div>
+                <div class="faq-item">
+                    <h4><i class="far fa-lightbulb"></i> Posso escolher o intervalo dos números?</h4>
+                    <p>Sim, você pode definir os valores mínimo e máximo para o intervalo dos números sorteados.</p>
+                </div>
+            </section>
+
+            <section class="form-column">
+                <h2>QUERO SORTEAR:</h2>
+                <p class="form-description">defina o intervalo e a quantidade de números, clique em "Sortear" e veja os resultados na tela. É rápido e fácil!</p>
+
+                <div class="input-fields-container">
+                    <div class="input-group">
+                        <label for="quantidade">NÚMEROS</label>
+                        <input type="number" id="quantidade" value="2">
+                    </div>
+                    <div class="input-group">
+                        <label for="inicio-intervalo">DE</label>
+                        <input type="number" id="inicio-intervalo" value="1">
+                    </div>
+                    <div class="input-group">
+                        <label for="fim-intervalo">DE</label> <input type="number" id="fim-intervalo" value="100">
+                    </div>
+                </div>
+
+                <div class="toggle-container">
+                    <label class="switch">
+                        <input type="checkbox" id="nao-repetir" checked>
+                        <span class="slider round"></span>
+                    </label>
+                    <span>Não repetir números</span>
+                </div>
+
+                <button class="sort-button">
+                    SORTEAR <i class="fas fa-arrow-right"></i>
+                </button>
+            </section>
+        </main>
+    </div>
+    </body>
+</html>
